@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>{{#if html_title}}{{html_title}} | ses{{else}}ses{{/if}}</title>
+  <meta name="keywords" content="{{#if meta_keywords}}{{meta_keywords}}{{else}}default, keywords, here{{/if}}" />
+  <meta name="description" content="{{meta_description}}" />
+  <!-- CSS Stylsheets -->
+  {{#pretify_html 2}}{{{ css_collection "ses" }}}{{/pretify_html}}
+</head>
+
+<body>
+  {{#pretify_html 2}}{{{ body }}}{{/pretify_html}}
+  <!-- Javascript -->
+  {{#pretify_html 2}}{{{ js_collection "ses" }}}{{/pretify_html}}
+</body>
+</html>

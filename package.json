@@ -1,0 +1,42 @@
+{
+  "name": "ses",
+  "description": "Student enrollment system II by Adam McArthur & Sunny Jain.",
+  "author": "",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adammcarth/monash-ses"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node start.js"
+  },
+  "dependencies": {
+    "chrono-node": "^1.0.8",
+    "cookie-parser": "^1.4.0",
+    "del": "^2.0.2",
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "file-stream-rotator": "0.0.6",
+    "git-rev": "^0.2.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-es6-transpiler": "^1.0.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "^1.4.1",
+    "merge-stream": "^1.0.0",
+    "morgan": "^1.6.1",
+    "ncp": "^2.0.0",
+    "run-sequence": "^1.1.4",
+    "strftime": "^0.9.2",
+    "time_ago_in_words": "^1.2.1",
+    "traceur": "0.0.91",
+    "traceur-source-maps": "^1.0.6"
+  }
+}

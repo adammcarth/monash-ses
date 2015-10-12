@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{html_title}}</title>
+  <style>
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
+    html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+    .clear { clear: both; }
+    .left { float: left; }
+    .right { float: right; }
+    .half { width: 45%; }
+    .fade { color: #777; }
+
+    body {
+      background: #7fbd42; /* Old browsers */
+      background: -moz-radial-gradient(center, ellipse cover, #7fbd42 12%, #3f963d 99%); /* FF3.6+ */
+      background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(12%,#7fbd42), color-stop(99%,#3f963d)); /* Chrome,Safari4+ */
+      background: -webkit-radial-gradient(center, ellipse cover, #7fbd42 12%,#3f963d 99%); /* Chrome10+,Safari5.1+ */
+      background: -o-radial-gradient(center, ellipse cover, #7fbd42 12%,#3f963d 99%); /* Opera 12+ */
+      background: -ms-radial-gradient(center, ellipse cover, #7fbd42 12%,#3f963d 99%); /* IE10+ */
+      background: radial-gradient(ellipse at center, #7fbd42 12%,#3f963d 99%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7fbd42', endColorstr='#3f963d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+      color: #333;
+      font-family: Helvetica, "Helvetica", sans-serif;
+    }
+
+    .error-heading {
+      width: 100%;
+      background: #333;
+      padding: 15px 30px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+    }
+
+    .error-heading h1 {
+      color: #E0E0E0;
+    }
+
+    .error-details {
+      width: 1200px;
+      background: #FFF;
+      -moz-border-radius: 6px;
+      -webkit-border-radius: 6px;
+      border-radius: 6px;
+      padding: 25px 20px;
+      font-size: 14px;
+      margin: 40px auto;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    code {
+      background: #EAEAEA;
+      display: block;
+      padding: 20px 10px 5px 10px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      overflow: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      empty-cells: show;
+      border: 1px solid #cbcbcb;
+      table-layout: fixed;
+    }
+
+    table tbody tr td {
+      border-left: 1px solid #cbcbcb;
+      border-width: 0 0 0 1px;
+      margin: 0;
+      overflow: visible;
+      background-color: transparent;
+      padding: 0.5em 1em;
+      word-wrap: break-word;
+    }
+
+    table tbody tr td:first-child {
+      border-left-width: 0;
+    }
+
+    table tbody tr.odd td {
+      background-color: #f2f2f2;
+    }
+
+    .node_logo {
+      width: 129px;
+      height: 37px;
+      background: url(/public/node_logo.png) no-repeat;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: -9999;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="error-heading">
+    <h1>{{#if use_html_in_title}}{{{error_title}}}{{else}}{{error_title}}{{/if}}</h1>
+  </div>
+
+  <div class="error-details">
+    {{#if custom_message}}
+    <section>
+      <p>{{custom_message}}</p>
+    </section>
+    {{/if}}
+
+    {{#if error_stack}}
+    <section>
+      <h2>Stack Trace</h2>
+<pre style="word-wrap: break-word;">
+{{{error_stack}}}
+</pre>
+    </section>
+    {{/if}}
+
+    <section class="half left">
+      <h2>Request Parameters</h2>
+<code>
+<pre>
+{{query}}
+</pre>
+</code>
+    </section>
+
+    <section class="half right">
+      <h2>Nested Parameters</h2>
+<code>
+<pre>
+{{params}}
+</pre>
+</code>
+    </section>
+
+    <div class="clear"></div>
+
+    <section class="half left">
+      <h2>Environment</h2>
+      <table>
+        <tbody>
+          <tr class="odd">
+            <td width="30%">Hostname:</td>
+            <td width="70%">{{hostname}}</td>
+          </tr>
+          <tr>
+            <td>Server IP:</td>
+            <td>{{ip}}</td>
+          </tr>
+          <tr class="odd">
+            <td>Protocol:</td>
+            <td>{{protocol}} (secure: {{is_secure}})</td>
+          </tr>
+          <tr>
+            <td>Asynchronous:</td>
+            <td>{{xhr}}</td>
+          </tr>
+          <tr class="odd">
+            <td>Environment:</td>
+            <td>{{environment}}</td>
+          </tr>
+          <tr>
+            <td>Deploy ID:</td>
+            <td>{{deploy_id}}</td>
+          </tr>
+          <tr class="odd">
+            <td>Branch:</td>
+            <td>{{git_branch}}</td>
+          </tr>
+          <tr>
+            <td>Version:</td>
+            <td>{{version}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="half right">
+      <h2>Cookies</h2>
+<code>
+<pre>
+{{cookies}}
+</pre>
+</code>
+    </section>
+
+    <div class="clear"></div>
+  </div>
+
+  <div class="node_logo"></div>
+</body>
+</html>
