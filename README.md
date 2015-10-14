@@ -1,6 +1,6 @@
-# ses
+# SES II
 
-Student enrollment system II by Adam McArthur & Sunny Jain.
+Student enrollment system II by Adam McArthur & Sunny Jain. Further documentation and acknowledgements on the way.
 
 ### Setup instructions
 
