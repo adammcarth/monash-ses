@@ -1,4 +1,4 @@
-# SES II
+# [http://ses.lol](http://ses.lol)
 
 Student enrollment system II by Adam McArthur & Sunny Jain. Further documentation and acknowledgements on the way.
 
