@@ -1,17 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
-  <title>{{#if html_title}}{{html_title}} | ses{{else}}ses{{/if}}</title>
-  <meta name="keywords" content="{{#if meta_keywords}}{{meta_keywords}}{{else}}default, keywords, here{{/if}}" />
-  <meta name="description" content="{{meta_description}}" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>{{#if html_title}}{{html_title}} | SES II{{else}}SES II - FIT1010 Assignment 2015{{/if}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="{{#if meta_keywords}}{{meta_keywords}}{{else}}monash,ses,software engineering,fit1010 project{{/if}}" />
+  <meta name="description" content="SES II project for Monash University's FIT1010: Introduction to Software Engineering" />
+  <meta name="author" content="Adam McArthur &amp; Sunny Jain" />
   <!-- CSS Stylsheets -->
   {{#pretify_html 2}}{{{ css_collection "ses" }}}{{/pretify_html}}
+  <!-- FontAwesome Icons CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" />
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 
 <body>
-  {{#pretify_html 2}}{{{ body }}}{{/pretify_html}}
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand"><a href="/">SES II</a></li>
+        <li><a href="/"{{#if make_active_start}} class="current"{{/if}}><i class="fa fa-home menu-icon"></i>Start</a></li>
+        <li><a href="/students/search"{{#if make_active_search}} class="current"{{/if}}><i class="fa fa-search menu-icon"></i>Search for students</a></li>
+        <li><a href="/students/new"{{#if make_active_new_student}} class="current"{{/if}}><i class="fa fa-user-plus menu-icon"></i>Create a student</a></li>
+        <li><a href="/units/new"{{#if make_active_new_unit}} class="current"{{/if}}><i class="fa fa-book menu-icon"></i>Create a unit</a></li>
+        <li><a href="/courses/new"{{#if make_active_new_course}} class="current"{{/if}}><i class="fa fa-trophy menu-icon"></i>Create a course</a></li>
+        <li><a href="/enrollments/new"{{#if make_active_new_enrollment}} class="current"{{/if}}><i class="fa fa-graduation-cap menu-icon"></i>Enroll a student</a></li>
+      </ul>
+    </div>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        {{#if msg}}
+        <div class="alert alert-{{msgType}}" role="alert">{{msg}}</div>
+        {{/if}}
+        {{#pretify_html 8}}{{{ body }}}{{/pretify_html}}
+      </div><!-- /.container-fluid -->
+    </div><!-- /#page-content-wrapper -->
+  </div><!-- /#wrapper -->
+
   <!-- Javascript -->
   {{#pretify_html 2}}{{{ js_collection "ses" }}}{{/pretify_html}}
 </body>

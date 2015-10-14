@@ -11,6 +11,7 @@ module.exports = function() {
     let path = require("path");
     let http = require("http");
     let cookieParser = require("cookie-parser");
+    let bodyParser = require('body-parser');
     let logger = require("morgan");
     let fs = require("fs");
     let FileStreamRotator = require("file-stream-rotator");
@@ -46,7 +47,9 @@ module.exports = function() {
     ses.use("/assets/fonts", express.static(path.join(__dirname, "/assets/fonts")));
 
     // Parse cookies and session data
-    tehApp.use(cookieParser());
+    ses.use(cookieParser());
+    ses.use(bodyParser.json());
+    ses.use(bodyParser.urlencoded({ extended: true }));
 
 /////////////////////////////////////////////////////////////////
 // 03. EXTERNAL API KEYS, DATABASES & OTHER CONFIGURATION      //
@@ -97,18 +100,18 @@ module.exports = function() {
     http.createServer(ses).listen(ses.get("port"), function(){
         console.log("---");
         console.log("ses is now running on port " + ses.get("port") + "...");
-        tehApp.set("version", pjson.version);
+        ses.set("version", pjson.version);
         console.log("Version: " + pjson.version);
 
         // Set the deployment id to the git commit hash id
         git.long(function(id) {
-            tehApp.set("deploy_id", id);
+            ses.set("deploy_id", id);
             ses.set("deploy_id", id);
             console.log("Deploy ID: " + ses.get("deploy_id"));
 
             // Output the current active branch name and environment
             git.branch(function(branch) {
-                tehApp.set("git_branch", branch);
+                ses.set("git_branch", branch);
                 console.log("From branch: " + branch);
                 console.log("Mode: " + ses.get("env") + "\n");
             });

@@ -1,2 +1,49 @@
-<h1>It works!</h1>
-<p>Find me at: <em>/views/students/search.html</em></p>
+ <div class="row">
+  <div class="col-lg-12">
+    <div class="page-header">
+      <h1><i class="fa fa-search heading-icon"></i>Search for students</h1>
+    </div>
+
+    {{#if filtered_students}}
+      <a href="/students/search" class="btn btn-default">Back</a>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Student ID:</th>
+              <th>Name:</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {{#each filtered_students}}
+              <tr>
+                {{#each this}}
+                  <td>{{this}}</td>
+                {{/each}}
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    {{else}}
+      <h3>Lookup a specific student id...</h3>
+      <form action="/students/search" method="post" class="form-horizontal">
+        <div class="form-group">
+          <input type="text" name="studentID" class="form-control" id="studentID" placeholder="Search by Student ID..." required="true">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">Lookup by ID</button>
+        </div>
+      </form>
+
+      <h3>Or, filter students database by:</h3>
+      <a href="/students/search?studyType=domestic" class="btn btn-primary">Domestic Students</a>
+      <a href="/students/search?studyType=international" class="btn btn-danger">International Students</a>
+      <a href="/students/search?workload=full" class="btn btn-warning">Full-time Students</a>
+      <a href="/students/search?workload=part" class="btn btn-success">Part-time Students</a>
+      <a href="/students/search?studyLevel=ugrad" class="btn btn-info">Undergraduate Students</a>
+      <a href="/students/search?studyLevel=pgrad" class="btn btn-info">Postgraduate Students</a>
+    {{/if}}
+  </div>
+</div>

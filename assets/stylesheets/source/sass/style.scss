@@ -1,7 +1,18 @@
-$font-stack: Helvetica, Arial, sans-serif;
-$color: #333;
+.menu-icon {
+  display: inline !important;
+  padding-right: 7px;
+}
 
-body {
-  font-family: $font-stack;
-  color: $color;
+.heading-icon {
+  padding-right: 15px;
+}
+
+a.current {
+  text-decoration: none;
+  color: #FFF !important;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+select[multiple] {
+  min-height: 400px;
 }

@@ -22,6 +22,8 @@ module.exports = {
     "collections": {
         "css": {
             "ses": [
+                "vendor/bootstrap.min.css",
+                "layout.css",
                 "style.css"
             ]
         },
@@ -29,7 +31,8 @@ module.exports = {
         "js": {
             "ses": [
                 "vendor/jquery-1.11.3.min.js",
-                "main.js"
+                "vendor/bootstrap.min.js",
+                "vendor/main.js"
             ]
         }
     }

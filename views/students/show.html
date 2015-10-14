@@ -1,2 +1,17 @@
-<h1>It works!</h1>
-<p>Find me at: <em>/views/students/show.html</em></p>
+<h1>{{name}}</h1>
+
+<h4>General Info</h4>
+<ul>
+  <li><strong>ID:</strong> {{id}}</li>
+  <li><strong>Study Level:</strong> {{studyLevel}}</li>
+  <li><strong>Study Type:</strong> {{studyType}}</li>
+  <li><strong>Workload:</strong> {{workload}}</li>
+</ul>
+
+<h4>Enrollment Details</h4>
+<ul>
+  <li><strong>Course:</strong> {{courseName}}</li>
+  <li><strong>Units:</strong> {{#each units}} {{this}} {{/each}}</li>
+</ul>
+
+<a href="/students/search" class="btn btn-primary">Back to search</a>
